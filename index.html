@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#12181d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hyrox">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<title>Hyrox, plan hasta Málaga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eceff1;--card:#fff;--ink:#12181d;--mute:#5b6770;--line:#d5dbe0;--acc:#f2c200;--hi:#c0392b;--mid:#9a6b00;--lo:#1f7a66;--fill:#12181d;--inv:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1317;--card:#171d23;--ink:#e8ecef;--mute:#98a4ad;--line:#2a333b;--hi:#ef7a63;--mid:#e0b43a;--lo:#4cb89f;--fill:#e8ecef;--inv:#0f1317;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1317;--card:#171d23;--ink:#e8ecef;--mute:#98a4ad;--line:#2a333b;--hi:#ef7a63;--mid:#e0b43a;--lo:#4cb89f;--fill:#e8ecef;--inv:#0f1317;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 Barlow,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+main{max-width:640px;margin:0 auto;padding:0 16px 48px}
+header{padding:20px 0 6px}
+h1{font:700 38px/1 "Barlow Condensed",Impact,sans-serif;margin:0}
+header p{margin:6px 0 0;color:var(--mute);font-size:15px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding:10px 0;border-bottom:1px solid var(--line)}
+nav button{flex:none;width:50px;background:none;border:0;padding:0;color:var(--mute);font:600 13px Barlow,sans-serif;cursor:pointer;text-align:center}
+nav b{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0 auto 2px;border-radius:50%;border:2px solid currentColor;font:700 19px "Barlow Condensed",sans-serif}
+nav .Alta b{color:var(--hi)}nav .Media b{color:var(--mid)}nav .Baja b{color:var(--lo)}
+nav button[aria-current=true]{color:var(--ink)}
+nav button[aria-current=true] b{background:var(--ink);color:var(--inv);border-color:var(--ink)}
+nav .gap{flex:none;width:1px;background:var(--line);margin:4px 2px}
+nav .rf{width:auto;padding:0 10px;align-self:center;font:600 17px "Barlow Condensed",sans-serif}
+button:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+h2{font:700 32px/1.05 "Barlow Condensed",sans-serif;margin:18px 0 2px}
+h3{font:700 24px/1.1 "Barlow Condensed",sans-serif;margin:26px 0 4px}
+.top p{margin:0;color:var(--mute)}
+.chip{display:inline-block;margin-top:8px;padding:1px 11px;border-radius:99px;border:1.5px solid currentColor;font-weight:600;font-size:14px}
+.Alta{color:var(--hi)}.Media{color:var(--mid)}.Baja{color:var(--lo)}
+.mac{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin:14px 0 0;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.ml{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--mute)}
+.ml b{color:var(--ink);font:700 20px "Barlow Condensed",sans-serif}
+.ml i{font-style:normal;color:var(--mute);font-weight:500;font-size:15px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:4px}
+.bar u{display:block;height:100%;background:var(--fill);transition:width .25s}
+.blk{margin:12px 0;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.bh{display:flex;gap:10px;align-items:center;cursor:pointer}
+.bh b{font:700 19px "Barlow Condensed",sans-serif;color:var(--hi);flex:1}
+.bt{margin:6px 0 0 30px;white-space:pre-line;font-size:16px}
+input[type=checkbox]{width:20px;height:20px;margin:0;flex:none;accent-color:var(--lo)}
+.bh input:checked~b{color:var(--mute)}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);padding:10px 12px;font-size:15px;margin:12px 0;border-radius:0 6px 6px 0}
+.meal{padding:10px 0;border-top:1px solid var(--line)}
+.mh{display:flex;gap:10px;align-items:center;cursor:pointer}
+.mh b{font:700 20px "Barlow Condensed",sans-serif;flex:1}
+.mh input:checked~b,.mh input:checked~.kc{color:var(--mute)}
+.kc{font-weight:600}
+.mp{display:flex;gap:16px;font-size:14px;color:var(--mute);margin:2px 0 0 30px}
+.meal p{margin:4px 0 0 30px;font-size:15px}
+.it{display:flex;gap:10px;padding:6px 0;cursor:pointer}
+.it input{margin-top:2px}
+.it input:checked+span{color:var(--mute)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:7px 8px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--mute)}
+ul{padding-left:20px;margin:6px 0}
+.rst{margin-top:28px;background:none;border:1px solid var(--line);color:var(--mute);padding:8px 14px;border-radius:6px;font:inherit;font-size:14px;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Plan hacia Málaga</h1>
+<p id="sub">Nutrición del 16 al 22 (entrenas con tu app) y mi semana 1 del 23 al 29. Hyrox Open, 17 de abril.</p>
+</header>
+<nav id="n"></nav>
+<div id="v"></div>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+let S={};
+try{S=JSON.parse(localStorage.getItem('hx1')||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem('hx1',JSON.stringify(S))}catch(e){}};
+const SL={
+Alta:[['5:30 Pre',190,2,45,0,'pre'],['Intra',100,0,25,0,'intra'],['Desayuno post',810,58,100,20,'des'],['Comida',830,58,105,20,'com'],['Cena',870,59,114,20,'cen'],['Postre',250,3,25,15,'pos']],
+Media:[['5:30 Pre',130,2,30,0,'pre'],['Desayuno post',725,58,85,17,'des'],['Comida',810,58,100,20,'com'],['Cena',890,59,111,23,'cen'],['Postre',250,3,25,15,'pos']],
+Baja:[['Pre',100,1,25,0,'pre'],['Desayuno',680,55,70,20,'des'],['Comida',725,60,76,20,'com'],['Cena',795,61,81,25,'cen'],['Postre',250,3,25,15,'pos']]};
+const TX={
+pre:{Alta:'Café + 1 plátano + 1 dátil Medjool + creatina',Media:'Café + 1 plátano + creatina',Baja:'Café + 1 fruta'},
+intra:{Alta:'500 ml de agua con electrolitos + 25 g de carbos (gel o maltodextrina). Si la sesión pasa de 80 min: 40 g y quita la fruta de la comida'},
+des:{Alta:'90 g de avena cocida en 250 ml de leche semi + 30 g de whey + 1 fruta (200 g) + 2 huevos cocidos',Media:'Tortilla de 3 huevos + 100 g de claras + 5 g de AOVE, 100 g de pan integral, 170 g de yogur griego 0 %, 1 fruta',Baja:'Tortilla de 3 huevos + 100 g de claras + 5 g de AOVE, 80 g de pan integral, 170 g de yogur griego 0 %, 1 fruta'},
+com:{
+piz:{Alta:'Pizza de fajita: 3 fajitas + 100 g de tomate triturado + 40 g de mozzarella + 100 g de pollo + verdura',Media:'Pizza de fajita: 3 fajitas + 100 g de tomate triturado + 40 g de mozzarella + 100 g de pollo + verdura',Baja:'Pizza de fajita: 2 fajitas + 100 g de tomate triturado + 40 g de mozzarella + 140 g de pollo + verdura'},
+car:{Alta:'Carbonara: 100 g de pasta (cruda) + 130 g de pollo + 40 ml de nata + 15 g de parmesano + 1 huevo + 20 g de pan + 1 fruta',Media:'Carbonara: 90 g de pasta (cruda) + 130 g de pollo + 40 ml de nata + 15 g de parmesano + 1 huevo + 1 fruta',Baja:'Carbonara: 70 g de pasta (cruda) + 150 g de pollo + 40 ml de nata + 15 g de parmesano + 1 huevo + 1 fruta'},
+bol:{Alta:'Boloñesa: 100 g de pasta (cruda) + 170 g de ternera picada magra + 150 g de tomate triturado + sofrito + 10 g de AOVE + 15 g de parmesano + 1 fruta',Media:'Boloñesa: 90 g de pasta (cruda) + 170 g de ternera picada magra + 150 g de tomate triturado + sofrito + 10 g de AOVE + 15 g de parmesano + 1 fruta',Baja:'Boloñesa: 70 g de pasta (cruda) + 170 g de ternera picada magra + 150 g de tomate triturado + sofrito + 10 g de AOVE + 15 g de parmesano + 1 fruta'}},
+cen:{
+bur:{Alta:'Hamburguesa en pan brioche: pan brioche (70 g) + 180 g de ternera magra + 1 loncha de queso + lechuga y tomate + 300 g de patata al horno + 1 fruta',Media:'Hamburguesa en pan brioche: pan brioche (70 g) + 180 g de ternera magra + 1 loncha de queso + lechuga y tomate + 250 g de patata al horno + 1 fruta',Baja:'Hamburguesa en pan brioche: pan brioche (70 g) + 180 g de ternera magra + 1 loncha de queso + ensalada + 150 g de patata al horno + 100 g de skyr'},
+pla:{Alta:'A la plancha: 200 g de pollo o pavo + 100 g de arroz (crudo) + 250 g de verdura + 10 g de AOVE + 30 g de pan + 1 fruta',Media:'A la plancha: 200 g de pollo o pavo + 90 g de arroz (crudo) + 250 g de verdura + 15 g de AOVE + 30 g de pan + 1 fruta',Baja:'A la plancha: 180 g de salmón + 100 g de gambas + 70 g de arroz (crudo) + 250 g de verdura + 1 fruta'}},
+pos:{mag:'1 Magnum de chocolate negro',gal:'45 g de galletas (4-5 unidades)',cho:'30 g de chocolate negro 70 % + 1 fruta'}};
+let MENU={'f20261116':['car','pla','gal'],'f20261117':['bol','bur','mag'],'f20261118':['piz','pla','cho'],'f20261119':['car','pla','gal'],'f20261120':['bol','pla','cho'],'f20261121':['piz','bur','mag'],'f20261122':['car','pla','cho'],'f20261123':['bol','bur','gal'],'f20261124':['piz','pla','cho'],'f20261125':['car','bur','mag'],'f20261126':['bol','pla','cho'],'f20261127':['car','pla','gal'],'f20261128':['piz','bur','mag'],'f20261129':['car','pla','gal']};
+function meals(id){const t=W[id][2],m=MENU[id];return SL[t].map(r=>{const k=r[5];const x=k==='com'?TX.com[m[0]][t]:k==='cen'?TX.cen[m[1]][t]:k==='pos'?TX.pos[m[2]]:TX[k][t];return [r[0],r[1],r[2],r[3],r[4],x]})}
+const ADJ='Prehab de sóleo en el calentamiento: 10/10 Knee-to-Wall y 12 Bent-Knee Calf Raise. Semáforo a las 5:30. Si el sóleo llega a 3/10, cambia la carrera por remo o bici.';
+const TH=[['A. Easy run / easy bike','OPCIÓN A\n30-45′ Easy Run @R1\n\nOPCIÓN B\n45-60′ Easy Bike @R1'],['B. Mobility','2 ROUNDS:\n1′ Couch Stretch Left\n1′ Couch Stretch Right\n10 Cat Cow\n1′ Deep Squat Hold\n10 Thoracic Rotation (5/5)\n1′ Child’s Pose'],['C. Prehab sóleo','2 ROUNDS:\n10/10 Knee-to-Wall\n12 Bent-Knee Calf Raise (3″ bajando)\nREST 30″']];
+const THN='Opcional. Si notas fatiga en las piernas, elige la bici. Cero esfuerzos: este día resta fatiga.';
+const TH2=[['A. Easy run / easy bike','OPCIÓN A\n35-45′ Easy Run @R1\n\nOPCIÓN B\n45-60′ Easy Bike @R1'],['B. Movilidad y prehab','2 ROUNDS:\n10/10 Knee-to-Wall\n12 Bent-Knee Calf Raise (3″ bajando)\n10/10 90/90 Hip Switch\n10 Cat Cow\n1′ Deep Squat Hold\n1′ Couch Stretch por lado']];
+let W={
+'f20261116':['Lunes 16 de noviembre','Tu app: fuerza + Hyrox strength + erg VO2max','Alta',[['Tu app (resumen)','Banca y remo con pecho apoyado, sled pull y wall balls pesados, 8-10 x 90″ de erg a R4-R5 y 4 x (1200m remo + 100m farmer)']],'Junto al miércoles y el sábado, el día de más demanda. Pre a las 5:30 y 40 g de carbos de intra en los intervalos. Semáforo a las 5:30.'],
+'f20261117':['Martes 17 de noviembre','Tu app: series 400m R4 + 800m R3','Alta',[['Tu app (resumen)','5-6 x (400m R4 + 800m R3 seguidos, REST 90″). Anota el tiempo de cada 1200m']],'Pre a las 5:30. Mañana es el miércoles más duro: cena con todos los carbos que marca el menú.'],
+'f20261118':['Miércoles 18 de noviembre','Tu app: fuerza + compromised running','Alta',[['Tu app (resumen)','Box squat, búlgaras, push press y banca inclinada; 5 x (500m SkiErg R4, 25m sled push, 20m BBJ, 1000m RP, 40 wall balls)']],'Intra: 40 g de carbos. Es el día de máxima demanda; mañana descanso activo.'],
+'f20261119':['Jueves 19 de noviembre','Tu app: descanso activo, con tarde de trabajo','Baja',[['Tu app (resumen)','30-45′ de carrera suave o 45-60′ de bici a R1 + movilidad']],'Comida y cena en tupper, y un snack de fruta y yogur en el bolso. Si cenas más tarde, mantén el mismo reparto y no saltes la comida.'],
+'f20261120':['Viernes 20 de noviembre','Tu app: peso muerto + EMOM de 24′','Media',[['Tu app (resumen)','Peso muerto 4 x 4 a RIR 2, EMOM de 24′ (thrusters, wall balls, lunges y BBJ) y 30′ de bici fácil']],'Mañana es la simulación completa: cena con carbos y sal, y bebe bien.'],
+'f20261121':['Sábado 21 de noviembre','Tu app: potencia + Hyrox completa invertida','Alta',[['Tu app (resumen)','Cleans o snatch con broad jumps y Hyrox completa en orden inverso, 70-80′ a RPE 6-8']],'Pre a las 5:30; 40 g de carbos de intra repartidos en la sim y proteína con carbos al terminar. Cena libre: hamburguesa y Magnum, ya encajados.'],
+'f20261122':['Domingo 22 de noviembre','Tu app: fartlek 8-10 x (4′ R2 + 1′ R4)','Media',[['Tu app (resumen)','10′ a R1, 8-10 bloques de 4′ a R2 + 1′ a R4 sin parar y 5′ a R1']],'Cierra la semana: pésate los 7 días y mándame el feedback esta noche. Mañana empieza mi semana 1.'],
+'f20261123':['Lunes 23 de noviembre','Fuerza upper pesada + potencia Hyrox','Media',[
+['A. Strength · pesado','APROXIMACIÓN\n1x6 Weighted Pull Up (peso corporal)\n2x3 Weighted Pull Up @aproximación\n\n5 ROUNDS:\n3 Weighted Pull Up @RIR 2\nREST 30″\n4 Barbell Push Press @RIR 2\nREST 2′30″'],
+['B. Potencia Hyrox','6 ROUNDS:\n15m Sled Push @PO (máxima velocidad)\n8 Wall Ball Shot @130% PO\nREST 90″'],
+['C. Erg intervals · umbral','CALENTAMIENTO\n5′ @R1\n\n6 ROUNDS:\n3′ SkiErg @R3 (rondas impares) / RowErg @R3 (rondas pares)\n2′ @R1\n\nScoring: metros de cada intervalo'],
+['D. Core y agarre','3 ROUNDS:\n10/10 Pallof Press\n10 Hanging Leg Raise\n45″ Dead Hang\n60m Farmer Carry @120% PO\nREST 60″']],
+'Pull-up pesado sin kipping: tres reps limpias con el peso más alto del bloque. Push Press: la cadera dispara y los brazos terminan. Sled Push a máxima velocidad; si en la tercera ronda baja el ritmo, añade 30″ de descanso. Anota los pesos.'],
+'f20261124':['Martes 24 de noviembre','Series de umbral largo + strides','Alta',[
+['A. Running intervals','CALENTAMIENTO (15′)\n10′ Easy Run @R1\n4x (20″ progresivo hasta R4 + 40″ Easy Run @R1)\n\nTRABAJO PRINCIPAL\n3 ROUNDS:\n2000m Run @R3\nREST 90″ trotando\n\n5′ Easy Run @R1\n\n6x\n150m Run @R5 (rápido y relajado)\n150m caminando\n\nVUELTA A LA CALMA\n10′ Easy Run @R1']],
+'Seis kilómetros a R3 en tres bloques largos: el umbral se aprende aguantando, no apretando. Sal en 4:21 y no bajes de 4:10; los tres 2000m dentro de ±3″ entre sí. Los strides son técnica y cadencia, no esprint. Si la FC pasa de 170 lpm antes del bloque 3, la sesión acaba ahí. Anota el ritmo medio de cada bloque.'],
+'f20261125':['Miércoles 25 de noviembre','Sentadilla pesada + Hyrox run-to-station','Alta',[
+['A. Strength','APROXIMACIÓN\n1x8 Back Squat (barra vacía)\n2x3 Back Squat @aproximación\n\n1. 4 ROUNDS:\n4 Back Squat @RIR 2\nREST 20″\n5 Box Jump (altura cómoda, bajar caminando)\nREST 2′30″\n\n2. 3 ROUNDS:\n8/8 Bulgarian Split Squat @RIR 2\n12/12 Single Leg Bent-Knee Calf Raise (3″ bajando)\nREST 90″'],
+['B. Hyrox run-to-station','CALENTAMIENTO\n10′ Easy Run @R1\n\n8 ROUNDS (las 8 estaciones, en orden de carrera):\n500m Run @RP\nESTACIÓN\nREST 60″\n\nRonda 1: 250m SkiErg @R4\nRonda 2: 25m Sled Push @PO\nRonda 3: 25m Sled Pull @PO\nRonda 4: 40m Burpee Broad Jump\nRonda 5: 250m RowErg @R4\nRonda 6: 100m Farmer Carry @PO\nRonda 7: 40m Sandbag Walking Lunges @PO\nRonda 8: 30 Wall Ball Shot @PO\n\nScoring: tiempo total y tiempo de cada 500m'],
+['C. Finisher · opcional','8x\n20″ SkiErg máximo\n40″ SkiErg suave']],
+'Aquí manda la carrera: cada 500m a 4:27 (2:14) aunque llegues cargado de la estación anterior. Si el último 500m es más de 8″ más lento que el primero, es tu fuga y la trabajamos. Back Squat: el peso más alto del mes con 4 reps a RIR 2.'],
+'f20261126':['Jueves 26 de noviembre','Descanso activo aeróbico','Baja',TH2,'Opcional. Si notas fatiga en las piernas, elige la bici. Cero esfuerzos: este día resta fatiga.'],
+'f20261127':['Viernes 27 de noviembre','Peso muerto + fuerza-resistencia Hyrox','Media',[
+['A. Strength','APROXIMACIÓN\n1x8 Barbell Deadlift (barra vacía)\n2x3 Barbell Deadlift @aproximación\n\n5 ROUNDS:\n3 Barbell Deadlift @RIR 2\nREST 20″\n5 Broad Jump (aterriza estable)\nREST 2′30″'],
+['B. Hyrox fuerza-resistencia','EMOM 16′ (4 rondas de 4′):\n1. 12 Wall Ball Shot @130% PO\n2. 25m Sandbag Walking Lunges @PO\n3. 15m Sled Push @PO\n4. 20m Burpee Broad Jump'],
+['C. Accesorios','3 ROUNDS:\n10/10 Single Arm DB Row @RIR 2\n8 Strict Toes To Bar\nREST 60″'],
+['D. Easy aerobic','6 ROUNDS (30′) @R1:\n3′ RowErg\n2′ Easy Bike']],
+'Peso muerto: 3 reps a RIR 2 (~160-165 kg), cada una desde parada. Si una ronda del EMOM no cabe en su minuto, baja la carga en la siguiente, no el ritmo. Wall balls unbroken.'],
+'f20261128':['Sábado 28 de noviembre','Skills + simulación Hyrox completa','Alta',[
+['A. Skills','EMOM 10′:\n1. 10-12 Wall Ball Shot @PO\n2. 20m Sandbag Walking Lunges @PO'],
+['B. Simulación Hyrox completa','CALENTAMIENTO\n10′ Easy Run @R1\n500m SkiErg progresivo\n\nFOR QUALITY (70-80′) · RPE 6-8:\n1000m Run @R2 alto\n1000m SkiErg @RP\n1000m Run @R2 alto\n50m Sled Push @PO\n1000m Run @R2 alto\n50m Sled Pull @PO\n1000m Run @R2 alto\n80m Burpee Broad Jump\n1000m Run @RP\n1000m RowErg @RP\n1000m Run @RP\n200m Farmer Carry @PO\n1000m Run @RP\n100m Sandbag Walking Lunges @PO\n1000m Run @RP\n100 Wall Ball Shot @PO\n\nScoring: tiempo total y el de cada mitad']],
+'Hyrox completa en orden de carrera con negative split: primera mitad en R2 alto y segunda a RP (carrera 4:27/km, SkiErg 2:08 y remo 2:00 por 500m). RPE 6 al principio y 8 al final; no es una competición. Transiciones ≤ 20″. Si la segunda mitad no sale más rápida que la primera, saliste fuerte.'],
+'f20261129':['Domingo 29 de noviembre','Long run aeróbico con final a ritmo de carrera','Alta',[
+['A. Long run','CALENTAMIENTO\n10′ Easy Run @R1\n\nTRABAJO PRINCIPAL\n45′ Run @R2 (mitad baja)\n15′ Run progresivo de R2 a RP\n\nVUELTA A LA CALMA\n5′ Easy Run @R1']],
+'Los primeros 45′ en la mitad baja de R2 (4:46 a ~4:36/km, 144-152 lpm); los últimos 15′ suben hasta 4:27 sin perder la técnica. Al menos la mitad en terreno blando. Si el sóleo llega a 3/10, vuelve a R1 y termina. Esta noche, tu feedback de la semana.']
+};
+let IDS=Object.keys(W);
+let DN={'f20261116':['16','Lun'],'f20261117':['17','Mar'],'f20261118':['18','Mié'],'f20261119':['19','Jue'],'f20261120':['20','Vie'],'f20261121':['21','Sáb'],'f20261122':['22','Dom'],'f20261123':['23','Lun'],'f20261124':['24','Mar'],'f20261125':['25','Mié'],'f20261126':['26','Jue'],'f20261127':['27','Vie'],'f20261128':['28','Sáb'],'f20261129':['29','Dom']};
+const chk=(k,x)=>`<label class="it"><input type="checkbox" data-k="${k}"${S[k]?' checked':''}><span>${x}</span></label>`;
+function day(id){
+const d=W[id],ms=meals(id);
+let h=`<div class="top"><h2>${d[0]}</h2><p>${d[1]}</p><span class="chip ${d[2]}">Día ${d[2].toLowerCase()}</span></div><div class="mac" id="mac"></div><h3>Entrenamiento</h3>`;
+d[3].forEach((b,i)=>{h+=`<div class="blk"><label class="bh"><input type="checkbox" data-k="${id}b${i}"${S[id+'b'+i]?' checked':''}><b>${b[0]}</b></label><div class="bt">${b[1]}</div></div>`});
+h+=`<p class="note">${d[4]}</p><h3>Nutrición</h3>`;
+h+=ms.map((r,i)=>`<div class="meal"><label class="mh"><input type="checkbox" data-k="${id}m${i}"${S[id+'m'+i]?' checked':''}><b>${r[0]}</b><span class="kc">${r[1]} kcal</span></label><div class="mp"><span>P ${r[2]} g</span><span>C ${r[3]} g</span><span>G ${r[4]} g</span></div><p>${r[5]}</p></div>`).join('');
+return h+'<button class="rst" id="rst">Reiniciar marcas</button>';
+}
+function upd(id){
+const ms=meals(id),A=[0,0,0,0],T=[0,0,0,0];
+ms.forEach((r,i)=>{for(let k=0;k<4;k++){T[k]+=r[k+1];if(S[id+'m'+i])A[k]+=r[k+1]}});
+const L=['Energía','Proteína','Carbos','Grasa'],U=[' kcal',' g',' g',' g'];
+$('#mac').innerHTML=L.map((l,k)=>`<div><div class="ml"><span>${l}</span><b>${A[k]}<i> / ${T[k]}${U[k]}</i></b></div><div class="bar"><u style="width:${Math.min(100,A[k]/T[k]*100)}%"></u></div></div>`).join('');
+}
+const tb=(h,r)=>`<div class="tw"><table><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${r.map(a=>`<tr>${a.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+function ref(){
+const fb=['Peso: media de la semana, al levantarte','Resultados clave: compromised running del miércoles (vs 34:26), series del martes, sim del sábado','Sensaciones 1–10 (fatiga, piernas, hambre), horas reales de sueño y noches interrumpidas','Garmin: HRV, FC reposo y readiness','Adherencia: % de comidas cumplidas y comodines usados','Sóleo: cualquier molestia, aunque sea mínima','Eventos sociales de la semana que viene'];
+return `<h2>Referencias</h2><h3>Tus ritmos (calculadora)</h3>`+tb(['Zona','Carrera, min/km (lpm)','Remo, min/500','SkiErg, min/500'],[['R1 suave','5:53-5:08 (113-142)','2:13-2:06','2:21-2:14'],['R2 aeróbico','4:46-4:27 (144-159)','2:03-1:58','2:11-2:06'],['<b>RP</b>','<b>4:27</b>','<b>2:00</b>','<b>2:08</b>'],['R3 umbral','4:21-4:10 (161-170)','1:56-1:53','2:04-2:01'],['R4 VO2max','4:00-3:49 (172-181)','1:51-1:48','1:59-1:56'],['R5 máximo','< 3:42 (> 181)','< 1:46','< 1:54']])+`<p class="note">1.000 m a RP: remo 3:59 y SkiErg 4:17. Pulso aproximado en ergómetros: R1 105-134, R2 136-151, R3 153-162, R4 164-173. @PO es el peso oficial y tú cargas PRO. R2 cómodo es la mitad baja del rango (hasta ~4:36/km y 152 lpm).</p>`+
+`<h3>Semana tipo</h3>`+tb(['Día','Sesión','Nutrición'],[['Lun','Fuerza upper + Hyrox strength + easy aerobic','Media'],['Mar','Series de carrera','Alta'],['Mié','Fuerza lower + compromised running','Alta'],['Jue','Descanso activo aeróbico','Baja'],['Vie','Fuerza A y B + easy aerobic','Media'],['Sáb','Skills + simulación Hyrox','Alta'],['Dom','Long run','Alta']])+
+`<h3>Volumen de la semana</h3>`+tb(['Qué','Valor'],[['Carrera total, sin el jueves','≈ 43 km'],['De calidad (R3, R5 y RP)','≈ 15 km'],['Series de fuerza pesadas','22'],['Rondas de trabajo Hyrox','18 (6 lunes + 8 miércoles + 4 viernes) + simulación completa el sábado'],['Ergómetros','30′ a umbral (lunes) + 30′ fácil (viernes)']])+`<h3>Tipos de día</h3>`+tb(['Día','kcal','P','C','G'],[['<span class="Alta">Alta</span>','3.050','180','414','75'],['<span class="Media">Media</span>','2.800','180','351','75'],['<span class="Baja">Baja</span>','2.550','180','277','80']])+
+`<p class="note">Media semanal ≈ 2.900 kcal. La semana 2 mantiene este volumen con estímulos distintos y se decide con tu feedback del domingo. La ajusto cada domingo con tu peso medio: objetivo −0,25 a −0,4 kg por semana.</p>
+<h3>Semáforo, a las 5:30</h3>`+tb(['Estado','Condición','Acción'],[['<span class="Baja">Verde</span>','HRV ≥ 57, sueño ≥ 6 h 30, sin dolor','Sesión tal cual'],['<span class="Media">Ámbar</span>','HRV 50–56 o sueño 5 h 30–6 h 30','−20-30 % de volumen, RPE 7 como techo'],['<span class="Alta">Rojo</span>','HRV &lt; 50, sueño &lt; 5 h 30 o sóleo ≥ 3/10','R1 30-40 min + movilidad']])+
+`<h3>Reglas</h3><ul><li>Proteína 180 g, grasa nunca por debajo de 70 g, fibra 30-40 g.</li><li>80/20: cada día lleva un postre de ~250 kcal (Magnum negro, galletas o chocolate) ya encajado en los macros.</li><li>Hambre a media mañana: pasa el yogur y la fruta del desayuno a las 11:00. Mismos macros, mejor reparto.</li><li>Si entrenas de noche (21:30): cena a las 19:00, 1 plátano a las 20:45 y un batido de 30 g de whey con 30 g de carbos al terminar; ese día quitas el postre.</li><li>Hamburguesa en pan brioche, pizza de fajita, carbonara y boloñesa ya están repartidas por los días. Si cambias un día de sitio, respeta el tipo (alta, media o baja).</li><li>Pésate cada mañana; decido con la media semanal.</li></ul>
+<h3>Hoja de ruta</h3>`+tb(['Fase','Fechas','Foco'],[['1. Base y definición','16 nov-10 ene','Déficit leve, ~81 kg'],['2. Desarrollo','11 ene-28 feb','Mantenimiento, ~80,5 kg'],['3. Específica','1 mar-4 abr','Sims completas'],['4. Competición','5-17 abr','Taper, H9 el 10, Málaga el 17']])+
+`<h3>Feedback del domingo</h3>`+fb.map((x,i)=>chk('fb'+i,x)).join('')+`<h3>Conexión con el agente</h3><p class="note">${LIVE?'Conectado: este plan viene del agente.':'Sin conectar: se muestra el plan guardado en la app.'}</p><button class="rst" id="key">Introducir clave del agente</button><br><button class="rst" id="rst">Reiniciar marcas</button>`;
+}
+function buildNav(){$('#n').innerHTML=IDS.map((id,i)=>`${i>0&&DN[id][1]==='Lun'?'<span class="gap"></span>':''}<button class="${W[id][2]}" data-i="d${id}"><b>${DN[id][0]}</b>${DN[id][1]}</button>`).join('')+'<button class="rf" data-i="ref">Ref</button>'}
+buildNav();
+const todayISO=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Madrid'});
+const defId=()=>{const t='f'+todayISO().replace(/-/g,'');return W[t]?t:IDS[0]};
+const NAMES=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+let LIVE=false;
+async function loadPlan(){
+try{
+const q=new URLSearchParams(location.search);let k=q.get('k');
+if(k){try{localStorage.setItem('hxk',k)}catch(e){}history.replaceState(null,'',location.pathname+location.hash)}
+try{k=k||localStorage.getItem('hxk')}catch(e){}
+if(!k)return false;
+const r=await fetch('/api/plan?k='+encodeURIComponent(k),{cache:'no-store'});
+if(!r.ok)return false;
+const j=await r.json();
+const ds=(j.dias||[]).filter(d=>d&&d.fecha&&d.titulo&&Array.isArray(d.bloques)&&d.menu);
+if(!ds.length)return false;
+const nW={},nM={},nD={};
+ds.forEach(d=>{
+const id='f'+d.fecha.replace(/-/g,'');
+nW[id]=[d.titulo,d.subtitulo||'',d.tipo,d.bloques.map(b=>[b.titulo,b.texto]),d.nota||''];
+nM[id]=[d.menu.comida,d.menu.cena,d.menu.postre];
+const dt=new Date(d.fecha+'T12:00:00');
+nD[id]=[String(dt.getDate()),NAMES[dt.getDay()]];
+});
+W=nW;MENU=nM;DN=nD;IDS=Object.keys(W);LIVE=true;
+const s=document.getElementById('sub');if(s)s.textContent='Plan del agente, actualizado '+new Date(j.actualizado||Date.now()).toLocaleDateString('es-ES',{day:'numeric',month:'long'})+'. Hyrox Open, 17 de abril.';
+return true;
+}catch(e){return false}
+}
+function show(){
+let id=location.hash.slice(1);
+const ok=id==='ref'||(id.startsWith('d')&&W[id.slice(1)]);
+if(!ok)id='d'+defId();
+$('#v').innerHTML=id==='ref'?ref():day(id.slice(1));
+document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.i===id)));
+if(id!=='ref')upd(id.slice(1));
+const c=document.querySelector('nav [aria-current=true]');if(c)c.scrollIntoView({inline:'center',block:'nearest'});
+window.scrollTo(0,0);
+}
+document.addEventListener('click',e=>{
+const b=e.target.closest('nav button');
+if(b){const i=b.dataset.i;if(location.hash.slice(1)===i)show();else location.hash=i;return}
+if(e.target.id==='rst'){S={};save();show()}
+if(e.target.id==='key'){const k=prompt('Clave del agente (PLAN_KEY)');if(k){try{localStorage.setItem('hxk',k.trim())}catch(x){}location.reload()}}
+});
+document.addEventListener('change',e=>{
+const k=e.target.dataset&&e.target.dataset.k;
+if(!k)return;
+S[k]=e.target.checked;save();
+const m=k.match(/^(f\d{8})/);
+if(m&&W[m[1]])upd(m[1]);
+});
+window.addEventListener('hashchange',show);
+show();
+loadPlan().then(ok=>{if(ok){buildNav();location.hash.slice(1)&&W[location.hash.slice(2)]?0:history.replaceState(null,'','#d'+defId());show()}});
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
+</body>
+</html>

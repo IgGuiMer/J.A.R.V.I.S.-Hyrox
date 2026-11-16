@@ -1,0 +1,16 @@
+{
+  "name": "hyrox-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Entrenador y nutricionista Hyrox por Telegram, con dashboard en Netlify",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node build.mjs",
+    "build:prompt": "node scripts/build-prompt.mjs",
+    "test": "node test/run.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.9"
+  }
+}
